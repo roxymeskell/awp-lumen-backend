@@ -14,5 +14,17 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return $router->app->version() . 'foo';
 });
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('employeehappiness', 'EmployeeHappinessController@getAll');
+
+    $router->get('employeehappiness/{id}', 'EmployeeHappinessController@get');
+
+    $router->post('employeehappiness', 'EmployeeHappinessController@store');
+
+    $router->delete('employeehappiness/{id}', 'EmployeeHappinessController@destroy');
+
+    $router->put('employeehappiness/{id}', 'EmployeeHappinessController@update');
+  });
