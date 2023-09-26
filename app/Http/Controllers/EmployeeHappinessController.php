@@ -20,14 +20,17 @@ class EmployeeHappinessController extends Controller
     public function getAll()
     {
         $employeeHappiness = new EmployeeHappiness;
-        // $employeeHappiness->team = 'Workplace';
-        $employeeHappiness->very_happy = EmployeeHappiness::all()->sum('very_happy');
-        $employeeHappiness->happy = EmployeeHappiness::all()->sum('happy');
-        $employeeHappiness->content = EmployeeHappiness::all()->sum('content');
-        $employeeHappiness->unhappy = EmployeeHappiness::all()->sum('unhappy');
-        $employeeHappiness->very_unhappy = EmployeeHappiness::all()->sum('very_unhappy');
+        $employeeHappinessAll = EmployeeHappiness::all();
+        $employeeHappiness->very_happy = $employeeHappinessAll->sum('very_happy');
+        $employeeHappiness->happy = $employeeHappinessAll->sum('happy');
+        $employeeHappiness->content = $employeeHappinessAll->sum('content');
+        $employeeHappiness->unhappy = $employeeHappinessAll->sum('unhappy');
+        $employeeHappiness->very_unhappy = $employeeHappinessAll->sum('very_unhappy');
 
-        return response()->json($employeeHappiness, 200);
+        return response()->json([
+            'total' => $employeeHappiness,
+            'data' => $employeeHappinessAll,
+        ], 200);
     }
 
     public function get($id)
