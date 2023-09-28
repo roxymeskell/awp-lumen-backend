@@ -24,7 +24,7 @@ $router->group(['prefix' => 'api', 'middleware' => 'cors'], function () use ($ro
 
     $router->post('employeehappiness', 'EmployeeHappinessController@store');
 
-    $router->delete('employeehappiness/{id}', 'EmployeeHappinessController@destroy');
-
     $router->put('employeehappiness/{id}', 'EmployeeHappinessController@update');
+
+    $router->delete('employeehappiness/{id}', 'EmployeeHappinessController@destroy');
 });
