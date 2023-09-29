@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
-class EmployeeHappiness extends Model
+class Happiness extends Model
 {
 
-    protected $table = 'employee_happiness';
+    protected $table = 'happiness';
 
     /**
      * The attributes that are mass assignable.
@@ -16,13 +16,22 @@ class EmployeeHappiness extends Model
      * @var string[]
      */
     protected $fillable = [
-        'name', 'very_happy', 'happy', 'content', 'unhappy', 'very_unhappy',
+        'name', 'is_workplace', 'very_happy', 'happy', 'content', 'unhappy', 'very_unhappy',
+    ];
+
+    protected $casts = [
+        'is_workplace' => 'boolean',
     ];
 
     protected $appends = [
         'very_happy_percent', 'happy_percent', 'content_percent', 'unhappy_percent', 'very_unhappy_percent',
         'very_happy_and_happy_percent', 'not_happy_percent'
     ];
+
+    // public function newCollection(array $models = []): Collection
+    // {
+    //     return new EmployeeHappinessCollection($models);
+    // }
 
     protected function veryHappyPercent(): Attribute
     {

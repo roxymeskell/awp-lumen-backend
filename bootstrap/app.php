@@ -73,12 +73,12 @@ $app->configure('app');
 */
 
 // $app->middleware([
-//     App\Http\Middleware\ExampleMiddleware::class
+//     App\Http\Middleware\ExampleMiddleware::class,
 // ]);
 
-// $app->routeMiddleware([
-//     'auth' => App\Http\Middleware\Authenticate::class,
-// ]);
+$app->routeMiddleware([
+    'cors' => App\Http\Middleware\Cors::class, // \Illuminate\Http\Middleware\HandleCors::class,
+]);
 
 /*
 |--------------------------------------------------------------------------
