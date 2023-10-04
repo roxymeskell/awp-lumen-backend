@@ -52,7 +52,7 @@ class HappinessController extends Controller
             'very_unhappy' => 'numeric|gte:0',
         ]);
         $happiness = Happiness::findOrFail($id);
-        $happiness = Happiness::update($request->only([
+        $happiness->update($request->only([
             'name',
             'very_happy',
             'happy',
