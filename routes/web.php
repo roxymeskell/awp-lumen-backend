@@ -12,7 +12,7 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-$router->group(['prefix' => 'api', 'middleware' => 'cors'], function () use ($router) {
+$router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('happiness', 'HappinessController@getAll');
     $router->get('happiness/{id}', 'HappinessController@get');
     $router->post('happiness', 'HappinessController@store');

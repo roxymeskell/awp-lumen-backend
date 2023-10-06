@@ -76,10 +76,6 @@ $app->middleware([
     App\Http\Middleware\Cors::class,
 ]);
 
-$app->routeMiddleware([
-    'cors' => App\Http\Middleware\Cors::class, // \Illuminate\Http\Middleware\HandleCors::class,
-]);
-
 /*
 |--------------------------------------------------------------------------
 | Register Service Providers
